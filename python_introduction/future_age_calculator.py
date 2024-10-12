@@ -1,4 +1,4 @@
-current_age=int(input("“How old are you? ”"))
+current_age=int(input("How old are you? "))
 
 years_to_2050=2050-2023
 age_in_future=current_age+years_to_2050
