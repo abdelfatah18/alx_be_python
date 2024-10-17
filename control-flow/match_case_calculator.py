@@ -17,7 +17,6 @@ elif operation == "/":
     else:
         result = num1 / num2
         print(f"The result is {result}.")
-else:
-    print("Invalid operation. Please choose +, -, *, or /.")
+
 
  
