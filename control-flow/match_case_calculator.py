@@ -4,16 +4,19 @@ operation = input("Choose the operation (+, -, *, /): ")
 
 if operation == '+':
         result = num1 + num2
-        print(f"The result of {num1} + {num2} is {result}.")
+        print(f"The result is {result}.")
 elif operation == '-':
         result = num1 - num2
-        print(f"The result of {num1} - {num2} is {result}.")
+        print(f"The result is {result}.")
 elif operation == '*':
         result = num1 * num2
-        print(f"The result of {num1} * {num2} is {result}.")
+        print(f"The result is {result}.")
 elif operation == '/':
-        if num2 == 0:
-            print("Cannot divide by zero.")
+      if num2 == 0:
+                print("Cannot divide by zero.")
+      else :
+               result = num1 / num2
+               print(f"The result is {result}.")
 else :
         result = num1 / num2
         print(f"The result of {num1} / {num2} is {result:.2f}.")  
