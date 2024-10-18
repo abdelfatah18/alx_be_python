@@ -5,6 +5,9 @@ task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
+# Initialize the reminder variable
+reminder = ""
+
 # Generate the reminder based on priority and time sensitivity
 match priority:
     case "high":
@@ -22,8 +25,8 @@ if time_bound == "yes":
 else:
     reminder += " Consider completing it when you have free time."
 
+# Finalize the output
+final_reminder = f"Customized Reminder:\nTask: {task}\nPriority Level: {priority.capitalize()}\n{reminder}"
+
 # Print the customized reminder with clear instructions
-print("\nCustomized Reminder:")
-print(f"Task: {task}")
-print(f"Priority Level: {priority.capitalize()}")
-print(reminder)
+print(final_reminder)
