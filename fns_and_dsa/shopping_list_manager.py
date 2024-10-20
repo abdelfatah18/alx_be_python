@@ -14,7 +14,7 @@ def main():
         
         # Input validation for menu choice
         try:
-            choice = int(input("Enter your choice: "))
+            choice =input("Enter your choice: ")
         except ValueError:
             print("Please enter a valid number.")
             continue
