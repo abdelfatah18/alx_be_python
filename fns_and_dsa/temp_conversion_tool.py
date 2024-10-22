@@ -4,32 +4,38 @@ CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
 def convert_to_celsius(fahrenheit):
     """
-    Convert a temperature from Fahrenheit to Celsius.
+    تحويل درجة الحرارة من فهرنهايت إلى سيليزيوس.
     """
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 def convert_to_fahrenheit(celsius):
     """
-    Convert a temperature from Celsius to Fahrenheit.
+    تحويل درجة الحرارة من سيليزيوس إلى فهرنهايت.
     """
     return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
 def main():
-    try:
-        # User Interaction
-        temp = float(input("Enter the temperature to convert: "))
-        unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
+    # طلب الإدخال من المستخدم
+    temp_input = input("أدخل درجة الحرارة للتحويل: ")
+    
+    # تحقق من أن الإدخال يمكن تحويله إلى رقم
+    if temp_input.replace('.', '', 1).isdigit() or (temp_input.startswith('-') and temp_input[1:].replace('.', '', 1).isdigit()):
+        temp = float(temp_input)
+    else:
+        print("خطأ: الرجاء إدخال قيمة رقمية لدرجة الحرارة.")
+        return
 
-        if unit == 'C':
-            converted_temp = convert_to_fahrenheit(temp)
-            print(f"{temp}°C is {converted_temp}°F")
-        elif unit == 'F':
-            converted_temp = convert_to_celsius(temp)
-            print(f"{temp}°F is {converted_temp}°C")
-        else:
-            raise ValueError("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
-    except ValueError as e:
-        print(f"Error: {e}. Please enter a numeric value for the temperature.")
+    # طلب الوحدة من المستخدم
+    unit = input("هل درجة الحرارة التي أدخلتها بوحدة سيليزيوس أم فهرنهايت؟ (C/F): ").strip().upper()
+
+    if unit == 'C':
+        converted_temp = convert_to_fahrenheit(temp)
+        print(f"{temp}°C هي {converted_temp}°F")
+    elif unit == 'F':
+        converted_temp = convert_to_celsius(temp)
+        print(f"{temp}°F هي {converted_temp}°C")
+    else:
+        print("وحدة غير صحيحة. الرجاء إدخال 'C' للسيليزيوس أو 'F' للفهرنهايت.")
 
 if __name__ == "__main__":
     main()
