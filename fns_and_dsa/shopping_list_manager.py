@@ -11,7 +11,7 @@ def main():
     while True:
         display_menu()
         try:
-            choice = int(input("Enter your choice: "))
+            choice = input("Enter your choice: ")
         except ValueError:
             print("Please enter a number.")
             continue
