@@ -4,40 +4,40 @@ def display_menu():
     print("2. Remove Item")
     print("3. View List")
     print("4. Exit")
-    
-    
-def main():
-    shopping_list = []
-    while True:
-        display_menu()
-        try:
-            choice = input("Enter your choice: ")
-        except ValueError:
-            print("Please enter a number.")
-            continue
 
-        if choice == "1":
-            item = input("Enter your item: ")
-            print(f"Item '{item}' is added.")
-            shopping_list.append(item)
-        elif choice == "2":
-            item = input("Enter the item to remove: ")
+def main():
+    shopping_list = []  # Initialize an empty shopping list
+
+    while True:
+        display_menu()  # Display menu options
+        choice = input("Enter your choice: ")
+
+        if choice == '1':  # Add Item
+            item = input("Enter the name of the item to add: ")
+            shopping_list.append(item)  # Add item to the list
+            print(f"{item} has been added to the shopping list.")
+
+        elif choice == '2':  # Remove Item
+            item = input("Enter the name of the item to remove: ")
             if item in shopping_list:
-                shopping_list.remove(item)
+                shopping_list.remove(item)  # Remove the item if it exists
                 print(f"{item} has been removed from the shopping list.")
             else:
-                print(f"{item} not found in the shopping list.")
-        elif choice == "3":
+                print(f"{item} is not in the shopping list.")
+
+        elif choice == '3':  # View List
             if shopping_list:
-                print("Shopping List:")
-                for item in shopping_list:
-                    print(f"- {item}")
+                print("Current Shopping List:")
+                for idx, item in enumerate(shopping_list, start=1):
+                    print(f"{idx}. {item}")
             else:
-                print("The shopping list is currently empty.")
-        elif choice == "4":
+                print("The shopping list is empty.")
+
+        elif choice == '4':  # Exit
             print("Goodbye!")
-            break
-        else:
+            break  # Exit the loop and end the program
+
+        else:  # Invalid choice
             print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
