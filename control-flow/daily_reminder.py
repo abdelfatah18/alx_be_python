@@ -12,7 +12,7 @@ def main():
         print("Invalid priority. Please enter high, medium, or low.")
         return
 
-    # Base reminder includes task and priority
+    # Generate the base reminder based on the priority
     match priority:
         case "high":
             reminder = f"'{task}' is a high priority task."
@@ -21,11 +21,11 @@ def main():
         case "low":
             reminder = f"'{task}' is a low priority task."
 
-    # Check for time sensitivity and customize
+    # Modify the reminder based on time sensitivity
     if time_bound == "yes":
-        reminder += " that requires immediate attention today!"  # High-priority phrase
+        reminder += " that requires immediate attention today!"
     elif time_bound == "no":
-        reminder += " Consider completing it when you have free time."  # Low-priority phrase
+        reminder += " Consider completing it when you have free time."
     else:
         print("Invalid input for time sensitivity. Please enter 'yes' or 'no'.")
         return
