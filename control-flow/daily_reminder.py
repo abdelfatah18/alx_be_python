@@ -1,32 +1,34 @@
 # daily_reminder.py
 
-# Prompt for user input
-task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ").lower()
-time_bound = input("Is it time-bound? (yes/no): ").lower()
+def main():
+    # Prompt for task details
+    task = input("Enter your task: ").strip()
+    priority = input("Priority (high/medium/low): ").strip().lower()
+    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
-# Initialize the reminder variable
-reminder = ""
+    # Validate priority input
+    valid_priorities = {"high", "medium", "low"}
+    if priority not in valid_priorities:
+        print("Invalid priority. Please enter high, medium, or low.")
+        return
 
-# Generate the reminder based on priority and time sensitivity
-match priority:
-    case "high":
-        reminder = f"'{task}' is a high priority task."
-    case "medium":
-        reminder = f"'{task}' is a medium priority task."
-    case "low":
-        reminder = f"'{task}' is a low priority task."
-    case _:
-        reminder = f"'{task}' priority level not recognized. Please use high, medium, or low."
+    # Reminder generation
+    match priority:
+        case "high":
+            reminder = f"'{task}' is a high priority task."
+        case "medium":
+            reminder = f"'{task}' is a medium priority task."
+        case "low":
+            reminder = f"'{task}' is a low priority task."
 
-# Adjust the reminder if the task is time-bound
-if time_bound == "yes":
-    reminder += " It requires immediate attention today!"
-else:
-    reminder += " Consider completing it when you have free time."
+    # Time-sensitive addition
+    if time_bound == "yes":
+        reminder += " that requires immediate attention today!"
+    else:
+        reminder += " Consider completing it when you have free time."
 
-# Finalize the output
-final_reminder = f"Customized Reminder:\nTask: {task}\nPriority Level: {priority.capitalize()}\n{reminder}"
+    # Display the reminder
+    print("\nReminder:", reminder)
 
-# Print the customized reminder with clear instructions
-print(final_reminder)
+if __name__ == "__main__":
+    main()
