@@ -1,9 +1,9 @@
-from polymorphism_demo import Rectangle, Circle
+from polymorphism_demo import Shape, Rectangle, Circle
 
 def main():
     shapes = [
-        Rectangle(10, 5),
-        Circle(7)
+        Rectangle(10, 5),  # Rectangle with length 10 and width 5
+        Circle(7)          # Circle with radius 7
     ]
 
     for shape in shapes:
