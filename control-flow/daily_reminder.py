@@ -10,11 +10,11 @@ def generate_reminder(task, priority, time_bound):
     # Match case to determine the priority level
     match priority:
         case "high":
-            reminder = f"Reminder: '{task}' is a high priority task"
+            reminder = f"'{task}' is a high priority task"
         case "medium":
-            reminder = f"Reminder: '{task}' is a medium priority task"
+            reminder = f"'{task}' is a medium priority task"
         case "low":
-            reminder = f"Reminder: '{task}' is a low priority task"
+            reminder = f"'{task}' is a low priority task"
         case _:
             reminder = "Invalid priority level entered."
     
@@ -31,7 +31,8 @@ def generate_reminder(task, priority, time_bound):
 def main():
     task, priority, time_bound = get_task_info()
     reminder = generate_reminder(task, priority, time_bound)
-    print(reminder)
+    # Ensure the reminder is printed with the exact message required
+    print(f"Reminder: {reminder}")
 
 if __name__ == "__main__":
     main()
